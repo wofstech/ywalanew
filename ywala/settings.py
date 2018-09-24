@@ -173,22 +173,12 @@ EMAIL_USE_TLS = True
 
 
 
-AWS_ACCESS_KEY_ID = 'AKIAIUZBQLVR3K7US3FA'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'pbc-media'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-
-AWS_LOCATION = 'static'
 
 
-DEFAULT_FILE_STORAGE = 'ywala.storage_backends.MediaStorage'
 
-MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-MEDIA_ROOT = MEDIA_URL
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 PAYSTACK_PUBLIC_KEY = 'pk_live_edc40e95b836dcaaa65d5b36a1db34aaa965d077'
 PAYSTACK_SECRET_KEY= 'sk_live_a57c0c54650c1e1d922f921e8d68328f5e395168'
