@@ -1,0 +1,29 @@
+{% extends "base.html" %}  
+{% load static %}
+{% load bootstrap3 %}
+<link rel='stylesheet' href='{% static "account/styles.css" %}'>
+{% block content %}     
+    <div id='addhouse'>
+        <br>
+        <div class='addshow'>
+            <p>Are you sure you want to delete This Search?</p>
+            <a href="{% url 'deletelist2' pk=house_list1.pk %}">Yes!</a>
+            <br><br> <br> 
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

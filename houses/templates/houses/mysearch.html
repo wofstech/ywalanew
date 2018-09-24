@@ -1,0 +1,290 @@
+{% extends "base.html" %}  
+{% load static %}
+{% load bootstrap3 %}
+{% load pagination_tags %}
+{% load paystack %}
+{% load spacing %}
+<link rel='stylesheet' href='{% static "account/styles.css" %}'>
+{% block content %}   
+    <section id='srs' >
+        <br>
+    <div class='sr1'>
+            {% if messages %}
+            <div class="alert alert-success">
+                <p>    
+                    {% for message in messages %}          
+                        {{ message|safe }}          
+                    {% endfor %}  
+                </p>
+            </div>                     
+        {% endif %}
+        <h3>Details</h3><br>
+            <div id='myCarousel' class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                        <li data-target="#myCarousel" data-slide-to="5"></li>
+    
+                        {% if  search_list.house_image7 %}
+                            <li data-target="#myCarousel" data-slide-to="6"></li>
+                        {% endif  %}
+    
+                        {% if  search_list.house_image8 %}
+                            <li data-target="#myCarousel" data-slide-to="7"></li>
+                        {% endif  %}
+    
+                        {% if  search_list.house_image9 %}
+                            <li data-target="#myCarousel" data-slide-to="8"></li>
+                        {% endif  %}
+    
+                        {% if  search_list.house_image10 %}
+                            <li data-target="#myCarousel" data-slide-to="9"></li>
+                        {% endif  %}
+    
+                        {% if  search_list.house_image11 %}
+                            <li data-target="#myCarousel" data-slide-to="10"></li>
+                        {% endif  %}
+    
+                        {% if  search_list.house_image12 %}
+                            <li data-target="#myCarousel" data-slide-to="11"></li>
+                        {% endif  %}
+                        </ol>
+                
+                        <div class="carousel-inner" role='listbox'>
+                            <div class="item active">
+                                <img src="{{search_list.house_image.url}}" style='width:100%; height:500px'>
+                            </div>
+                    
+                            <div class="item">
+                                <img src="{{search_list.house_image2.url}}" style='width:100%; height:500px'>
+                            </div>
+                    
+                            <div class="item">
+                                <img src="{{search_list.house_image3.url}}" style='width:100%; height:500px'>
+                            </div>
+    
+                            <div class="item">
+                                <img src="{{search_list.house_image4.url}}" style='width:100%; height:500px'>
+                            </div>
+    
+                            <div class="item">
+                                <img src="{{search_list.house_image5.url}}" style='width:100%; height:500px'>
+                            </div>
+    
+                            <div class="item">
+                                <img src="{{search_list.house_image6.url}}" style='width:100%; height:500px'>
+                            </div>
+    
+                            {% if house_list1.house_image7 %}
+                                <div class="item">
+                                    <img src="{{search_list.house_image7.url}}" style='width:100%; height:500px'>
+                                </div>
+                            {% endif %}
+    
+                            {% if house_list1.house_image8 %}
+                                <div class="item">
+                                    <img src="{{search_list.house_image8.url}}" style='width:100%; height:500px'>
+                                </div>
+                            {% endif %}
+    
+                            {% if house_list1.house_image9 %}
+                                <div class="item">
+                                    <img src="{{search_list.house_image9.url}}" style='width:100%; height:500px'>
+                                </div>
+                            {% endif %}
+    
+                            {% if house_list1.house_image10 %}
+                                <div class="item">
+                                    <img src="{{search_list.house_image10.url}}" style='width:100%; height:500px'>
+                                </div>
+                            {% endif %}
+    
+                            {% if house_list1.house_image11 %}
+                                <div class="item">
+                                    <img src="{{search_list.house_image11.url}}" style='width:100%; height:500px'>
+                                </div>
+                            {% endif %}
+    
+                            {% if house_list1.house_image12 %}
+                                <div class="item">
+                                    <img src="{{search_list.house_image12.url}}" style='width:100%; height:500px'>
+                                </div>
+                            {% endif %}
+                        </div>
+                
+                        <a class='left carousel-control' href='#myCarousel' role='button' data-slide='prev'>
+                        <span class='glyphicon glyphicon-chevron-left' aria-hidden="true"></span>
+                        <span class='sr-only'>Previous</span>
+                        </a>
+                        <a class='right carousel-control' href='#myCarousel' role='button' data-slide='next'>
+                        <span class='glyphicon glyphicon-chevron-right' aria-hidden="true"></span>
+                        <span class='sr-only'>Next</span>
+                    </a>
+                </div>
+                <br>
+                <ul class='divider'>
+                    <div class='userpost1'  id='userpost1' style='font-size:17px'>
+                            <div class='rightguy'>
+                                <li> {{search_list.name_of_accomodation}}</li><br>
+                                <li><img src="{% static 'account/bed1.png' %}" width='17px' height='17px'>&nbsp{{search_list.Number_of_rooms}} &nbspBedrooms</li><br>
+                            </div>
+                            <div class='leftguy'>
+                                <li><img src="{% static 'account/loc2.png' %}" width='20px' height='20px' > &nbsp{{search_list.City_or_town}}</li><br>
+                                <li><img src="{% static 'account/naira1.png' %}" width='20px' height='20px' >&nbsp{{search_list.house_rent}}</li><br>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                </ul>
+                
+                <div style='clear:both'>
+                    <hr style='border-color:#286DA8;'>
+                    <h3><strong>Full Details</strong></h3>
+                    <div class='col-sm-6'>
+                            <table class='table table-hover' >
+                                    <tr>
+                                        <td>Apartment Type</td>
+                                        {% if search_list.type_of_apartment == "Looking for roommate" %}
+                                        <td style='background:green; border-radius:20px; color:#fff'>{{search_list.type_of_apartment}}</td>
+                                        {% else %}
+                                        <td>{{search_list.type_of_apartment}}</td>
+                                        {% endif %}
+                                    </tr>
+            
+                                    <tr>
+                                        <td>Number of Rooms</td>
+                                        <td>{{search_list.Number_of_rooms}}</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td>House Rent</td>
+                                        <td>{{search_list.house_rent}}</td>
+                                    </tr>
+                
+                                    <tr>
+                                            <td>State</td>
+                                            <td>{{search_list.State}}</td>
+                                        </tr>
+            
+                                    <tr>
+                                        <td>City or town</td>
+                                        <td>{{search_list.City_or_town}}</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td>Street</td>
+                                        <td>{{search_list.Street}}</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td>Size of room</td>
+                                        <td>{{search_list.Size_of_room}}</td>
+                                    </tr>
+                            </table>
+            
+                    </div>
+
+                    <div class='col-sm-6'>
+                        <table class='table table-hover' id='table'>
+                            <tr>
+                                    <td>Available from</td>
+                                    <td id='lefty'>{{search_list.Available_from}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Nearest Institution</td>
+                                    <td id='lefty'>{{search_list.nearest_institution}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Toilet</td>
+                                    <td id='lefty'>{{search_list.Toilet}}</td>
+                                    
+                                </tr>
+        
+                                <tr>
+                                    <td>Running water</td>
+                                    <td id='lefty'>{{search_list.Running_water}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Fenece</td>
+                                    <td id='lefty'>{{search_list.Fenced}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Parking_space</td>
+                                    <td id='lefty'>{{search_list.Parking_space}}</td>
+                                </tr>
+            
+                            </table>
+                    </div>
+                    <div style='clear:both'></div>
+                    
+                   <strong><h3>Descritption</h3></strong> 
+                    {{search_list.description|keep_spacing}}
+
+                    <br>
+                    <hr style='border-color:#286DA8;'>
+                   
+                    <table class='table'>
+                        <tr>
+                            <td>Do you want to send {{search_list.author }} a message?</td>
+                            <td><a href='{% url "postman:write" search_list.author %}'> <button class='btn btn-success'>Yes!</button></a></td>
+                        </tr>
+
+                        <tr>
+                            <td>View Landlord's Phone Number?</td>
+                            <td><a href='{% url "phone" search_list.id %}'> <button class='btn btn-success'>Yes!</button></a></td>
+                        </tr>
+
+                        {% if search_list.Payment_status == 'Not Paid' %}
+                            <tr>
+                                <td>Do you want to pay for this accomodation with Ywala.com secured payment? </td>
+                                <td>{% paystack_button amount=search_list.house_rent email=user.email  %}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td><strong>This Listing Has Been Paid for</strong></td>
+                            </tr>
+                        {% endif %}
+                    </table>
+                
+                </div>
+
+        
+    
+<hr style='border-color:#286DA8;'>
+    </div>
+<div id='related'> 
+    <h3 style='color:#666666'>Related Houses</h3>
+    <div class='row' id='related2'>
+        {% for relateds in related %}
+            {% if relateds.id != search_list.id %}
+                        <div class='col-sm-6' id='related-row'>
+                            <div id='searchInner'>
+                                   
+                                    <a href="{% url 'search-detail' relateds.id %}"><img src='{{relateds.house_image2.url}}'   class='responsive' id='related-image'></a>
+                                <div>
+                                    <div id='rightsearch'>
+                                        {{relateds.name_of_accomodation}}<br>
+                                        <img src="{% static 'account/bed1.png' %}" width='17px' height='17px'>&nbsp{{relateds.Number_of_rooms}}
+                                    </div>
+                                    <div id='leftsearch'>
+                                        <img src="{% static 'account/loc2.png' %}" width='20px' height='20px' > &nbsp{{relateds.State}}<br>
+                                        <img src="{% static 'account/naira1.png' %}" width='20px' height='20px' >&nbsp{{relateds.house_rent}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            {% endif %}
+        {% endfor %}
+    </div>  
+</div>
+
+
+    </section>
+{% endblock %}

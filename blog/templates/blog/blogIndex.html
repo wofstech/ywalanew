@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap3 %}
+{% load spacing %}
+<link rel='stylesheet' href='{% static "account/styles.css" %}'>
+{% block content %}
+    <div class='blog-home'>
+        <div class='blog-home-2'>
+            <h2>Ywala Blog</h2><br>
+                {% for blog in post_list  %}
+                <div class='custom-well' >
+                        <h3>{{blog.title}}</h3><br>
+                        <div class='blog-body'>
+                            <p>{{ blog.body|keep_spacing }} }}</p> 
+                        </div><br>
+                        <a href="{% url 'blog-detail' blog.id %}"><button class='btn btn-primary' >Continue Reading</button></a>
+    
+                </div><br>
+
+                {% endfor %}
+            
+        </div>
+    </div>
+{% endblock %}
+   
+
+
+
+
+ 

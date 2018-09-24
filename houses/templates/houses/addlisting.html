@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bootstrap3 %}
+<link rel='stylesheet' href='{% static "account/styles.css" %}'>
+{% block content %}
+    <div id='addhouse'>
+        <br>
+        
+        <div class='addshow'>
+                 
+                        {% if messages %}
+                            <div class="alert alert-success">
+                                <p>    
+                                    {% for message in messages %}          
+                                        {{ message|safe }}          
+                                    {% endfor %}  
+                                </p>
+                            </div>                     
+                        {% endif %}       
+                    
+            <br>
+            <h2 style="  color:#666666; ">Create New Listing</h2>
+            <br>
+            <form method="POST" class="post-form" enctype="multipart/form-data" >{% csrf_token %}
+                {% load bootstrap %}
+
+                {{ house_form.name_of_accomodation|bootstrap}}
+                <div class='row'>
+                    <div class='col-sm-4'>
+                        {{ house_form.type_of_apartment|bootstrap}}
+                    </div>
+    
+                    <div class='col-sm-4'>
+                        {{ house_form.Number_of_rooms|bootstrap}}
+                    </div>
+    
+                    <div class='col-sm-4'>
+                        {{ house_form.house_rent|bootstrap}}
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class='col-sm-4'>
+                        {{ house_form.Landlord_number|bootstrap}} 
+                    </div>
+    
+                    <div class='col-sm-4'>
+                        {{ house_form.Size_of_room|bootstrap}}
+                    </div>
+    
+                    <div class='col-sm-4'>
+                        {{ house_form.Available_from|bootstrap}}
+                    </div>
+    
+                </div>
+                {{ house_form.availability|bootstrap}}
+                <div class='row'>
+                    <div class='col-sm-4'>
+                        {{ house_form.State|bootstrap}}
+                    </div>
+    
+                    <div class='col-sm-4'>
+                        {{ house_form.City_or_town|bootstrap}}
+                    </div>
+
+                    <div class='col-sm-4'>
+                        {{ house_form.Street|bootstrap}}
+                    </div>
+    
+                </div>
+                {{ house_form.nearest_institution|bootstrap}}
+                <hr style='border-color:#286DA8;'>
+                
+                <strong> <p>Enter Landlord's Account Details to Receive House Rent</p></strong>
+                {{ house_form.Account_name|bootstrap}}
+                {{ house_form.Account_number|bootstrap}}
+               
+                {{ house_form.Toilet|bootstrap}}
+                {{ house_form.Running_water|bootstrap}}
+                {{ house_form.Fenced|bootstrap}}
+                {{ house_form.Parking_space|bootstrap}}
+                {{ house_form.description|bootstrap}}
+                
+               <strong> <p>Upload six images below</p></strong>
+               <div >
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image}}</label>
+                        </div>
+        
+                        <div class='col-sm-4' >
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image2}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image3}}</label>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image4}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image5}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image6}}</label>
+                        </div>
+                    </div>
+                <p>Do you want to upload more images?
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#colMenu">Yes</button>
+                </p>
+                <div id='colMenu' class='collapse'>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image7}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image8}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image9}}</label>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default ' >{{ house_form.house_image10}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image11}}</label>
+                        </div>
+        
+                        <div class='col-sm-4'>
+                            <label style='font-size:10px;' class='btn btn-default'>{{ house_form.house_image12}}</label>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+               
+                <br>
+               <button type="submit" class='btn btn-success'>Upload Listing</button>
+               
+            </form>
+            <br>
+        </div>
+    </div>
+{% endblock %}
+   
+
+
+
+
+ 

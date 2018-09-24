@@ -1,0 +1,50 @@
+{% extends "base.html" %}  
+{% load static %}
+{% load bootstrap3 %}
+<link rel='stylesheet' href='{% static "account/styles.css" %}'>
+{% block content %}     
+    <div id='addhouse'>
+        <br>
+        <div class='addshow'>
+                {% if messages %}
+                            <div class="alert alert-success">
+                                <p>    
+                                    {% for message in messages %}          
+                                        {{ message|safe }}          
+                                    {% endfor %}  
+                                </p>
+                            </div>                     
+                        {% endif %}
+            <br>
+            <h1 style=" font-size: 30px; color:#666666;">VIP search</h1>  
+            
+            <div id='vipText'>
+                <div id='vipText2'>
+                    <p>Dear {{ request.user.first_name }}</p>
+                    <p>Our priority is making the process of finding an apartment simple and easy for you. Therefore, we do the search for you while you relax</p>
+                    <p>Create a search profile and we will send you an email when a new listing mathces your search criteria</p>
+                    <p>Let us do the work for you</p>
+                </div>
+            </div>
+            <br><br><br> 
+             <a href='{% url "viplist" %}'><button class='btn btn-success'>View Your Saved Searches</button></a><br>
+            <h3>Add a New Search</h3>
+             <form method="POST" class="post-form" >
+                    {% csrf_token %}    
+                {% load bootstrap %}
+                {{ vip_form|bootstrap}}   
+                    
+                <p><button type="submit" class='btn btn-success'>Save Changes</button></p>  
+            </form>
+            <br>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+ 
+
+
+

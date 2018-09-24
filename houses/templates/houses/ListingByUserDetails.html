@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+{% load static %}
+{% load spacing %}
+<link rel='stylesheet' href='{% static "account/styles.css" %}'>
+{% block content %}
+    <section id='userlisting1' >
+        <div class='outeruser' >
+            <br>
+            <br>
+            <div class='userlisting'>
+                    {% if messages %}
+                    <div class="alert alert-success">
+                        <p>    
+                            {% for message in messages %}          
+                                {{ message|safe }}          
+                            {% endfor %}  
+                        </p>
+                    </div>                     
+                {% endif %}
+                <div  style='font-size:15px;'>
+                <ul class='myuserdetails'>
+                    <p style= 'font-size:20px; padding-top: 25px;'><strong>Listing Details</strong></p>
+                    <br>
+                    <a href="{% url 'editlist2' pk=house_list1.pk %}"><button class='btn btn-success'>Edit</button></a></button>
+
+        
+                    <button class="btn btn-danger " type="button" data-toggle="collapse" data-target="#colMenu">Delete</button>
+                    <div id='colMenu' class='collapse'>
+                        <p>Are you sure you want to delete?
+                            <a href="{% url 'deletelist' pk=house_list1.pk %}">Yes!</a>
+                        </p>
+                    </div>
+                    <br><br>
+                    <div id='myCarousel' class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                                <li data-target="#myCarousel" data-slide-to="4"></li>
+                                <li data-target="#myCarousel" data-slide-to="5"></li>
+
+                                {% if  house_list1.house_image7 %}
+                                    <li data-target="#myCarousel" data-slide-to="6"></li>
+                                {% endif  %}
+
+                                {% if  house_list1.house_image8 %}
+                                    <li data-target="#myCarousel" data-slide-to="7"></li>
+                                {% endif  %}
+
+                                {% if  house_list1.house_image9 %}
+                                    <li data-target="#myCarousel" data-slide-to="8"></li>
+                                {% endif  %}
+
+                                {% if  house_list1.house_image10 %}
+                                    <li data-target="#myCarousel" data-slide-to="9"></li>
+                                {% endif  %}
+
+                                {% if  house_list1.house_image11 %}
+                                    <li data-target="#myCarousel" data-slide-to="10"></li>
+                                {% endif  %}
+
+                                {% if  house_list1.house_image12 %}
+                                    <li data-target="#myCarousel" data-slide-to="11"></li>
+                                {% endif  %}
+                                </ol>
+                        
+                                <div class="carousel-inner" role='listbox'>
+                                    <div class="item active">
+                                        <img src="{{house_list1.house_image.url}}" style='width:100%; height:500px'>
+                                    </div>
+                            
+                                    <div class="item">
+                                        <img src="{{house_list1.house_image2.url}}" style='width:100%; height:500px'>
+                                    </div>
+                            
+                                    <div class="item">
+                                        <img src="{{house_list1.house_image3.url}}" style='width:100%; height:500px'>
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="{{house_list1.house_image4.url}}" style='width:100%; height:500px'>
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="{{house_list1.house_image5.url}}" style='width:100%; height:500px'>
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="{{house_list1.house_image6.url}}" style='width:100%; height:500px'>
+                                    </div>
+
+                                    {% if house_list1.house_image7 %}
+                                        <div class="item">
+                                            <img src="{{house_list1.house_image7.url}}" style='width:100%; height:500px'>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if house_list1.house_image8 %}
+                                        <div class="item">
+                                            <img src="{{house_list1.house_image8.url}}" style='width:100%; height:500px'>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if house_list1.house_image9 %}
+                                        <div class="item">
+                                            <img src="{{house_list1.house_image9.url}}" style='width:100%; height:500px'>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if house_list1.house_image10 %}
+                                        <div class="item">
+                                            <img src="{{house_list1.house_image10.url}}" style='width:100%; height:500px'>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if house_list1.house_image11 %}
+                                        <div class="item">
+                                            <img src="{{house_list1.house_image11.url}}" style='width:100%; height:500px'>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if house_list1.house_image12 %}
+                                        <div class="item">
+                                            <img src="{{house_list1.house_image12.url}}" style='width:100%; height:500px'>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                        
+                                <a class='left carousel-control' href='#myCarousel' role='button' data-slide='prev'>
+                                <span class='glyphicon glyphicon-chevron-left' aria-hidden="true"></span>
+                                <span class='sr-only'>Previous</span>
+                                </a>
+                                <a class='right carousel-control' href='#myCarousel' role='button' data-slide='next'>
+                                <span class='glyphicon glyphicon-chevron-right' aria-hidden="true"></span>
+                                <span class='sr-only'>Next</span>
+                            </a>
+                        </div>
+                        <br>
+                        <div class='userpost' id='userpost1'>
+                                <div class='rightguy'>
+                                    <li> {{house_list1.name_of_accomodation}}</li>
+                                    <li><img src="{% static 'account/bed1.png' %}" width='17px' height='17px'>&nbsp{{house_list1.Number_of_rooms}} &nbspBedrooms</li>
+                                </div>
+                                <div class='leftguy'>
+                                    <li><img src="{% static 'account/loc2.png' %}" width='20px' height='20px' > &nbsp{{house_list1.location}}</li>
+                                    <li><img src="{% static 'account/naira1.png' %}" width='20px' height='20px' >&nbsp{{house_list1.house_rent}}</li>
+                                </div>
+                                
+                            </div>
+                    <div style='clear:both;'></div>
+                    <hr style='border-color:#286DA8;'>
+                    <br>
+                    <h3><strong>Full Details</strong></h3>
+                    <div class='col-sm-6'>
+                            <table class='table table-hover' >
+                                    <tr>
+                                        
+                                        <td>Apartment Type</td>
+                                        {% if house_list1.type_of_apartment == "Looking for roommate" %}
+                                        <td style='background:green; border-radius:20px; color:#fff'>{{house_list1.type_of_apartment}}</td>
+                                        {% else %}
+                                        <td>{{house_list1.type_of_apartment}}</td>
+                                        {% endif %}
+                                    </tr>
+            
+                                    <tr>
+                                        <td>Number of Rooms</td>
+                                        <td>{{house_list1.Number_of_rooms}}</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td>House Rent</td>
+                                        <td>{{house_list1.house_rent}}</td>
+                                    </tr>
+                
+                                    <tr>
+                                            <td>State</td>
+                                            <td>{{house_list1.State}}</td>
+                                        </tr>
+            
+                                    <tr>
+                                        <td>City or town</td>
+                                        <td>{{house_list1.City_or_town}}</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td>Street</td>
+                                        <td>{{house_list1.Street}}</td>
+                                    </tr>
+            
+                                    <tr>
+                                        <td>Size of room</td>
+                                        <td>{{house_list1.Size_of_room}}</td>
+                                    </tr>
+                            </table>
+            
+                    </div>
+
+                    <div class='col-sm-6'>
+                        <table class='table table-hover' id='table'>
+                            <tr>
+                                    <td>Available from</td>
+                                    <td id='lefty'>{{house_list1.Available_from}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Nearest Institution</td>
+                                    <td id='lefty'>{{house_list1.nearest_institution}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Toilet</td>
+                                    <td id='lefty'>{{house_list1.Toilet}}</td>
+                                    
+                                </tr>
+        
+                                <tr>
+                                    <td>Running water</td>
+                                    <td id='lefty'>{{house_list1.Running_water}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Fenece</td>
+                                    <td id='lefty'>{{house_list1.Fenced}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td>Parking_space</td>
+                                    <td id='lefty'>{{house_list1.Parking_space}}</td>
+                                </tr>
+            
+                            </table>
+                    </div>
+                    
+                        
+                    <div style='clear:both'></div>
+                   <strong><h3>Descritption</h3></strong> 
+                    {{house_list1.description|keep_spacing}}<br><br><br>
+
+                    </ul>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

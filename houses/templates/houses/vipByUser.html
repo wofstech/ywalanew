@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+<link rel='stylesheet' href='{% static "account/styles.css" %}'>
+{% block content %}
+    <section id='userlisting1'>
+        
+        <div class='outeruser'>
+            <div class='userlisting'>
+                <br>
+                    {% if messages %}
+                    <div class="alert alert-success">
+                        <p>    
+                            {% for message in messages %}          
+                                {{ message|safe }}          
+                            {% endfor %}  
+                        </p>
+                    </div>                     
+                {% endif %}
+            
+                    <p style=" font-size: 25px; color:#666666; padding-top: 24px;">Saved VIp Searches</p>
+                    {% if vip_list %}
+                    <div class='row'>
+                    {% for house in vip_list  %}
+                    <div class='well' style='padding-bottom:100px'>
+                        <div class = 'vip-show'>
+                            <div class ='vip-show-left'>
+                                {{house.type_of_apartment}}<br>
+                                Rooms:&nbsp{{house.Number_of_rooms}}<br><br>
+                                <a href="{% url 'vip-detail' house.id %}"><button class='btn btn-danger' >Delete</button></a>
+            
+                            </div>
+                            <div class ='vip-show-right'>
+                                {{house.State}}<br>
+                                {{house.City_or_town}}
+                                
+                            </div>
+                        </div>
+                    </div><br>
+
+
+
+    
+                    {% endfor %}
+                    {% else %}
+                    <div style='font-size: 16px;'>No listing to display</div><br>
+                    <br>
+                    </div>
+                   
+                    
+                    {% endif %}
+            </div>
+            {% if is_paginated %}
+            <div class="pagination">
+                <span class="page-links">
+                    {% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+                    <span class="page-current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                </span>
+            </div>
+        {% endif %}
+            
+        </div>
+    </section>
+{% endblock %}
